@@ -1,15 +1,19 @@
 package com.imagine.goldenscent;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Handler;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -57,7 +61,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         try {
             if (groupPosition == 0) {
-                handleBestSellerItem(view, childName);
+                for (int i = 0; i < 3; i++) { // for adding the column view 3 times
+                    handleBestSellerItem(view, childName);
+                }
             } else {
                 handleLipsItem(view, childName);
             }
@@ -80,19 +86,30 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         // define layout inflater
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         // setting the views parameters
+        // first, defining the column of products
+        LinearLayout column = new LinearLayout(context);
+        column.setLayoutParams(new LinearLayout.LayoutParams
+                ((int) (getScreenWidth() * 0.73), LinearLayout.LayoutParams.WRAP_CONTENT));
+        column.setGravity(Gravity.CENTER);
+        column.setOrientation(LinearLayout.VERTICAL);
+        // now, adding the products to the column
         String[] allColumnChildren = childName.split(",,");
         for (int i = 0; i < allColumnChildren.length; i++) {
-            LinearLayout column = new LinearLayout(context);
-            column.setLayoutParams(new LinearLayout.LayoutParams
-                    ((int) (bsScrollItems.getWidth() * 0.9), LinearLayout.LayoutParams.WRAP_CONTENT));
-            column.setGravity(Gravity.CENTER);
-            column.setOrientation(LinearLayout.VERTICAL);
-            //column.setPadding(10, 10, 10, 10);
-            bsScrollItems.addView(column);
-            for (int j = 0; j < 3; j++) { // for adding the column view 3 times
-                column.addView(addItemView(i, allColumnChildren[i], inflater));
-            }
+            column.addView(addItemView(i, allColumnChildren[i], inflater));
         }
+        // finally, adding the column to the main horizontalScrollView
+        bsScrollItems.addView(column);
+    }
+
+    /**
+     * to get the screen physical width
+     *
+     * @return the required width value
+     */
+    private int getScreenWidth() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        return displayMetrics.widthPixels;
     }
 
     /**
@@ -104,7 +121,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
      * @return the created view with the required parameters set
      */
     private View addItemView(int index, String childName, LayoutInflater inflater) {
+        // get the view and set the correct dimensions
         View singleBsItemListing = inflater.inflate(R.layout.single_bs_item, null);
+        int height = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, 120, context.getResources().getDisplayMetrics());
+        singleBsItemListing.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, height));
         // define the views within that single view
         ImageView productImage = singleBsItemListing.findViewById(R.id.product_image);
         TextView productName = singleBsItemListing.findViewById(R.id.product_name);
@@ -113,10 +135,11 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         TextView productOrgPrice = singleBsItemListing.findViewById(R.id.product_org_price);
         TextView productCutPrice = singleBsItemListing.findViewById(R.id.product_cut_price);
         Button productAdd = singleBsItemListing.findViewById(R.id.product_add);
+        View separator = singleBsItemListing.findViewById(R.id.separator);
 
         productName.setText(childName);
         int itemImageResourceId = context.getResources().getIdentifier
-                (childName.replaceAll("&amp;", "").replaceAll("\\s+", "").toLowerCase(), "drawable", context.getPackageName());
+                (childName.replaceAll("&", "").replaceAll("\\s+", "").toLowerCase(), "drawable", context.getPackageName());
         productImage.setImageResource(itemImageResourceId);
         int itemDescriptionResourceId = context.getResources().getIdentifier
                 (childName.replaceAll("&", "").replaceAll("\\s+", "").toLowerCase(), "string", context.getPackageName());
@@ -124,8 +147,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         if (index == 0) {
             productPrice.setVisibility(View.GONE);
-            productCutPrice.setVisibility(View.VISIBLE);
             productOrgPrice.setVisibility(View.VISIBLE);
+            productCutPrice.setVisibility(View.VISIBLE);
             productOrgPrice.setText(context.getResources().getString(R.string.org_price_value));
             productCutPrice.setText(context.getResources().getString(R.string.cut_price_value));
             // StrikeThrough the original price
@@ -135,6 +158,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             productOrgPrice.setVisibility(View.GONE);
             productPrice.setVisibility(View.VISIBLE);
             productPrice.setText(context.getResources().getString(R.string.price_value));
+        }
+        if (index == 2) {
+            separator.setVisibility(View.INVISIBLE);
         }
 
         productAdd.setOnClickListener(new View.OnClickListener() {
@@ -225,7 +251,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         if (groupPosition == 0) {
             groupIndicator.setVisibility(View.GONE);
             textViewAll.setVisibility(View.VISIBLE);
-            view.setBackgroundColor(Color.RED);
         } else {
             if (isExpanded)
                 groupIndicator.setImageResource(R.drawable.arrow_up);
