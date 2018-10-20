@@ -1,6 +1,7 @@
 package com.imagine.goldenscent;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Handler;
 import android.view.Gravity;
@@ -9,14 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.zip.Inflater;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
@@ -45,18 +44,16 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int groupPosition, final int childPosition,
-                             boolean isLastChild, View view, ViewGroup parent) {
+                             boolean isLastChild, View view, ViewGroup viewGroup) {
 
         final String childName = (String) getChild(groupPosition, childPosition);
 
-        if (view == null) {
-            LayoutInflater infalInflater = (LayoutInflater) this.context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            if (groupPosition == 0)
-                view = infalInflater.inflate(R.layout.bs_child_listing, null);
-            else
-                view = infalInflater.inflate(R.layout.single_lips_item, null);
-        }
+        LayoutInflater inflater = (LayoutInflater) this.context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        if (groupPosition == 0)
+            view = inflater.inflate(R.layout.bs_child_listing, null);
+        else
+            view = inflater.inflate(R.layout.single_lips_item, null);
 
         try {
             if (groupPosition == 0) {
@@ -90,7 +87,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                     ((int) (bsScrollItems.getWidth() * 0.9), LinearLayout.LayoutParams.WRAP_CONTENT));
             column.setGravity(Gravity.CENTER);
             column.setOrientation(LinearLayout.VERTICAL);
-            column.setPadding(10, 10, 10, 10);
+            //column.setPadding(10, 10, 10, 10);
             bsScrollItems.addView(column);
             for (int j = 0; j < 3; j++) { // for adding the column view 3 times
                 column.addView(addItemView(i, allColumnChildren[i], inflater));
@@ -208,17 +205,15 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded,
-                             View view, ViewGroup parent) {
+                             View view, ViewGroup viewGroup) {
 
         // get the group title
         String headerTitle = (String) getGroup(groupPosition);
 
         // get the view
-        if (view == null) {
-            LayoutInflater infalInflater = (LayoutInflater) this.context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = infalInflater.inflate(R.layout.single_category_group_listing, null);
-        }
+        LayoutInflater inflater = (LayoutInflater) this.context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        view = inflater.inflate(R.layout.single_category_group_listing, null);
 
         /* define the views */
         TextView groupTitle = view.findViewById(R.id.group_title);
@@ -230,6 +225,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         if (groupPosition == 0) {
             groupIndicator.setVisibility(View.GONE);
             textViewAll.setVisibility(View.VISIBLE);
+            view.setBackgroundColor(Color.RED);
+        } else {
+            if (isExpanded)
+                groupIndicator.setImageResource(R.drawable.arrow_up);
+            else
+                groupIndicator.setImageResource(R.drawable.arrow_down);
         }
 
         MainActivity.groupsIndicator.put(groupPosition, groupIndicator);
