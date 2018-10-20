@@ -8,4 +8,6 @@
     <color name="colorVeryLightGray">#EEEEEE</color>
     <color name="colorPrice">#D82000</color>
     <color name="colorRedButton">#D72f22</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorButtonBg">#FAFAFA</color>
 </resources>

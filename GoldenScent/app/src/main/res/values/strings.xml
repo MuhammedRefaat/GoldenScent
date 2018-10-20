@@ -9,13 +9,13 @@
     <string name="nails">Nails</string>
     <!-- for products listing children-->
     <!-- 1 -->
-    <string name="bs_items">PRADA,,DOLCE &amp; GABBANA,,AIGNER</string>
+    <string name="bs_items">PRADA,,DOLCE &amp; GABBANA Special Edition,,AIGNER</string>
     <!-- 2 & 3 & 4 -->
     <string name="lips_row_1">Pencils,,Lipstick,,Lipgloss</string>
     <string name="lips_row_2">Lip Balm,,Treatment,,Palette</string>
     <!-- for products description -->
     <string name="prada">Candy</string>
-    <string name="dolcegabbana">The One and text goes here until it breaks for getting to big for the allowed space</string>
+    <string name="dolcegabbanaspecialedition">The One and text goes here until it breaks for getting to big for the allowed space</string>
     <string name="aigner">N. 1</string>
     <!-- for products prices -->
     <string name="org_price_value">356 SR</string>

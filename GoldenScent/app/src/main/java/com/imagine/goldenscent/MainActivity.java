@@ -1,16 +1,9 @@
 package com.imagine.goldenscent;
 
-import android.content.Context;
-import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,8 +38,9 @@ public class MainActivity extends AppCompatActivity {
         // assigning the adapter to the view
         productsListView.setAdapter(productsListAdapter);
 
-        // removing the list default indicator
+        // removing the list default indicator adn children separators
         productsListView.setGroupIndicator(null);
+        productsListView.setChildDivider(getResources().getDrawable(R.color.colorTransparent));
 
         // set the Listeners for the ListView
         productsListView.setOnGroupExpandListener(onGroupExpand);

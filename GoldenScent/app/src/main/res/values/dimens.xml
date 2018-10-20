@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="lips_item_image_h">80dp</dimen>
+    <dimen name="lips_item_name_h">20dp</dimen>
+    <dimen name="lips_item_padding">5dp</dimen>
+</resources>

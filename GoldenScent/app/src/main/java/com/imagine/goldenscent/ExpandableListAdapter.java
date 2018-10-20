@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -65,7 +64,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                     handleBestSellerItem(view, childName);
                 }
             } else {
-                handleLipsItem(view, childName);
+                handleLipsItem(view, childName, groupPosition, isLastChild);
             }
         } catch (NullPointerException npe) {
             npe.printStackTrace();
@@ -163,34 +162,23 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             separator.setVisibility(View.INVISIBLE);
         }
 
-        productAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View view) {
-                // give click feeling
-                view.setAlpha(0.3f);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        view.setAlpha(1.0f);
-                    }
-                }, 300);
-            }
-        });
-
         return singleBsItemListing;
     }
 
     /**
      * To handle the child view in case of a lips Item
      *
-     * @param view      the holding view
-     * @param childName that child name
+     * @param view          the holding view
+     * @param childName     that child name
+     * @param groupPosition the current group position
+     * @param isLastChild   Indicating the current child is the last one or not
      */
-    private void handleLipsItem(View view, String childName) {
+    private void handleLipsItem(View view, String childName, int groupPosition, boolean isLastChild) {
         // define the views
         LinearLayout item1 = view.findViewById(R.id.item1);
         LinearLayout item2 = view.findViewById(R.id.item2);
         LinearLayout item3 = view.findViewById(R.id.item3);
+        Button viewAllCat = view.findViewById(R.id.view_all_cat);
         // setting the views parameters
         String[] allRowChildren = childName.split(",,");
         LinearLayout[] items = new LinearLayout[]{item1, item2, item3};
@@ -205,6 +193,23 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             int itemImageResourceId = context.getResources().getIdentifier
                     (itemNameValue.replaceAll("\\s+", "").toLowerCase(), "drawable", context.getPackageName());
             itemImage.setImageResource(itemImageResourceId);
+        }
+        // now control the footer Button appearance
+        if (isLastChild) {
+            viewAllCat.setVisibility(View.VISIBLE);
+            String viewAllValue = context.getResources().getString(R.string.view_all) + " ";
+            switch (groupPosition) {
+                case 1:
+                    viewAllValue += context.getResources().getString(R.string.lips);
+                    break;
+                case 2:
+                    viewAllValue += context.getResources().getString(R.string.face);
+                    break;
+                case 3:
+                    viewAllValue += context.getResources().getString(R.string.nails);
+                    break;
+            }
+            viewAllCat.setText(viewAllValue);
         }
     }
 

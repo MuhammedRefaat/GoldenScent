@@ -1,85 +1,104 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/item1"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@android:color/transparent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.8"
+        <LinearLayout
+            android:id="@+id/item1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:padding="10dp"
-            android:scaleType="fitCenter" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2"
             android:gravity="center"
-            android:textColor="@color/colorDarkGray"
-            android:textSize="12sp" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lips_item_image_h"
+                android:background="@android:color/transparent"
+                android:padding="@dimen/lips_item_padding"
+                android:scaleType="fitCenter" />
 
-    <LinearLayout
-        android:id="@+id/item2"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@android:color/transparent"
-        android:gravity="center"
-        android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lips_item_name_h"
+                android:gravity="center"
+                android:textColor="@color/colorDarkGray"
+                android:textSize="12sp" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.8"
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/item2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:padding="5dp"
-            android:scaleType="fitCenter" />
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2"
-            android:textColor="@color/colorDarkGray"
-            android:textSize="12sp" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lips_item_image_h"
+                android:background="@android:color/transparent"
+                android:padding="@dimen/lips_item_padding"
+                android:scaleType="fitCenter" />
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lips_item_name_h"
+                android:gravity="center"
+                android:textColor="@color/colorDarkGray"
+                android:textSize="12sp" />
 
-    <LinearLayout
-        android:id="@+id/item3"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@android:color/transparent"
-        android:gravity="center"
-        android:orientation="vertical">
+        </LinearLayout>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.8"
+        <LinearLayout
+            android:id="@+id/item3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:padding="5dp"
-            android:scaleType="fitCenter" />
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2"
-            android:textColor="@color/colorDarkGray"
-            android:textSize="12sp" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lips_item_image_h"
+                android:background="@android:color/transparent"
+                android:padding="@dimen/lips_item_padding"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lips_item_name_h"
+                android:gravity="center"
+                android:textColor="@color/colorDarkGray"
+                android:textSize="12sp" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
+    <com.imagine.goldenscent.MyCustomClickableButton
+        android:id="@+id/view_all_cat"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="25dp"
+        android:background="@color/colorButtonBg"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="12sp"
+        android:visibility="gone" />
 
 </LinearLayout>
