@@ -29,6 +29,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         this.context = context;
         this.headers = headers;
         this.allChildrenData = allChildrenData;
+        MainActivity.groupsIndicator = new HashMap<>();
     }
 
     @Override
@@ -52,15 +53,19 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             LayoutInflater infalInflater = (LayoutInflater) this.context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             if (groupPosition == 0)
-                view = infalInflater.inflate(R.layout.single_bs_item, null);
+                view = infalInflater.inflate(R.layout.bs_child_listing, null);
             else
                 view = infalInflater.inflate(R.layout.single_lips_item, null);
         }
 
-        if (groupPosition == 0) {
-            handleBestSellerItem(view, childName);
-        } else {
-            handleLipsItem(view, childName);
+        try {
+            if (groupPosition == 0) {
+                handleBestSellerItem(view, childName);
+            } else {
+                handleLipsItem(view, childName);
+            }
+        } catch (NullPointerException npe) {
+            npe.printStackTrace();
         }
 
         return view;
@@ -74,7 +79,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
      */
     private void handleBestSellerItem(View view, String childName) {
         // define the views
-        HorizontalScrollView bsScrollItems = view.findViewById(R.id.bsScrollItems);
+        LinearLayout bsScrollItems = view.findViewById(R.id.bsScrollItems);
         // define layout inflater
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         // setting the views parameters
@@ -117,7 +122,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 (childName.replaceAll("&amp;", "").replaceAll("\\s+", "").toLowerCase(), "drawable", context.getPackageName());
         productImage.setImageResource(itemImageResourceId);
         int itemDescriptionResourceId = context.getResources().getIdentifier
-                (childName.replaceAll("&amp;", "").replaceAll("\\s+", "").toLowerCase(), "string", context.getPackageName());
+                (childName.replaceAll("&", "").replaceAll("\\s+", "").toLowerCase(), "string", context.getPackageName());
         productDesc.setText(itemDescriptionResourceId);
 
         if (index == 0) {
@@ -225,11 +230,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         if (groupPosition == 0) {
             groupIndicator.setVisibility(View.GONE);
             textViewAll.setVisibility(View.VISIBLE);
-        } else if (groupPosition == 1) {
-            groupIndicator.setImageResource(R.drawable.arrow_up);
-        } else {
-            groupIndicator.setImageResource(R.drawable.arrow_down);
         }
+
+        MainActivity.groupsIndicator.put(groupPosition, groupIndicator);
 
         // return the group corresponding view
         return view;
