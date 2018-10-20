@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">GoldenScent</string>
+    <string name="add">ADD</string>
+    <string name="view_all">View All</string>
+    <!-- for products listing headers -->
+    <string name="bestSellers">Best Sellers</string>
+    <string name="lips">Lips</string>
+    <string name="face">Face</string>
+    <string name="nails">Nails</string>
+    <!-- for products listing children-->
+    <!-- 1 -->
+    <string name="bs_items">PRADA,,DOLCE &amp; GABBANA,,AIGNER</string>
+    <!-- 2 & 3 & 4 -->
+    <string name="lips_row_1">Pencils,,Lipstick,,Lipgloss</string>
+    <string name="lips_row_2">Lip Balm,,Treatment,,Palette</string>
+    <!-- for products description -->
+    <string name="prada">Candy</string>
+    <string name="dolcegabbana">The One and text goes here until it breaks for getting to big for the allowed space</string>
+    <string name="aigner">N. 1</string>
+    <!-- for products prices -->
+    <string name="org_price_value">356 SR</string>
+    <string name="cut_price_value">320 SR</string>
+    <string name="price_value">356 SR</string>
+
 </resources>

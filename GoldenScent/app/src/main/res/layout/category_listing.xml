@@ -11,29 +11,23 @@
         android:layout_weight="0.5"
         android:orientation="horizontal">
 
-        <ImageView
+        <include
+            layout="@layout/single_lips_item"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:padding="5dp"
-            android:scaleType="fitCenter" />
+            android:layout_weight="1" />
 
-        <ImageView
+        <include
+            layout="@layout/single_lips_item"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:padding="5dp"
-            android:scaleType="fitCenter" />
+            android:layout_weight="1" />
 
-        <ImageView
+        <include
+            layout="@layout/single_lips_item"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:padding="5dp"
-            android:scaleType="fitCenter" />
+            android:layout_weight="1" />
 
     </LinearLayout>
 
@@ -44,29 +38,23 @@
         android:layout_weight="0.5"
         android:orientation="horizontal">
 
-        <ImageView
+        <include
+            layout="@layout/single_lips_item"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:padding="5dp"
-            android:scaleType="fitCenter" />
+            android:layout_weight="1" />
 
-        <ImageView
+        <include
+            layout="@layout/single_lips_item"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:padding="5dp"
-            android:scaleType="fitCenter" />
+            android:layout_weight="1" />
 
-        <ImageView
+        <include
+            layout="@layout/single_lips_item"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:padding="5dp"
-            android:scaleType="fitCenter" />
+            android:layout_weight="1" />
 
     </LinearLayout>
 

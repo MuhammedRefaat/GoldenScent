@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="headers">
+        <item>@string/bestSellers</item>
+        <item>@string/lips</item>
+        <item>@string/face</item>
+        <item>@string/nails</item>
+    </string-array>
+
+    <string-array name="childrenOfHeader_0">
+        <item>@string/bs_items</item>
+    </string-array>
+
+    <string-array name="childrenOfHeader_1">
+        <item>@string/lips_row_1</item>
+        <item>@string/lips_row_2</item>
+    </string-array>
+
+    <string-array name="childrenOfHeader_2">
+        <item>@string/lips_row_1</item>
+        <item>@string/lips_row_2</item>
+    </string-array>
+
+    <string-array name="childrenOfHeader_3">
+        <item>@string/lips_row_1</item>
+        <item>@string/lips_row_2</item>
+    </string-array>
+
+</resources>
