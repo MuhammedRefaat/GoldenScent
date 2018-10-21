@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 TypedValue.COMPLEX_UNIT_DIP, 90, getResources().getDisplayMetrics());
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams
                 (LinearLayout.LayoutParams.MATCH_PARENT, viewHeight);
-        lp.setMargins(15, 15, 15, 15);
+        lp.setMargins(20, 20, 20, 20);
         // adding the views
         for (int i = 0; i < categories.size(); i++) {
             view = inflater.inflate(R.layout.single_category_selection, null);
