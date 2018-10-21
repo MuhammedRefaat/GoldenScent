@@ -89,7 +89,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         // first, defining the column of products
         LinearLayout column = new LinearLayout(context);
         column.setLayoutParams(new LinearLayout.LayoutParams
-                ((int) (getScreenWidth() * 0.73), LinearLayout.LayoutParams.WRAP_CONTENT));
+                ((int) (getScreenWidth() * 0.69), LinearLayout.LayoutParams.WRAP_CONTENT));
         column.setGravity(Gravity.CENTER);
         column.setOrientation(LinearLayout.VERTICAL);
         // now, adding the products to the column

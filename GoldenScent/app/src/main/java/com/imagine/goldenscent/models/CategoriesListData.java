@@ -8,17 +8,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class PrepareCategoriesListData {
+public class CategoriesListData {
 
     public static List<String> categories;
     public static ArrayList<Integer> catImagesResourcesIds;
 
-    private static Context context;
+    public static void prepareData(Context context) {
 
-    public static void prepareData(Context activityContext) {
-
-        context = activityContext;
-
+        catImagesResourcesIds = new ArrayList<>();
         // getting the categories array
         String[] categoriesArray = context.getResources().getStringArray(R.array.categories);
         categories = Arrays.asList(categoriesArray);

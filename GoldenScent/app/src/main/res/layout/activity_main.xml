@@ -10,7 +10,8 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.2">
+        android:layout_weight="0.25"
+        android:scrollbars="none">
 
         <LinearLayout
             android:id="@+id/main_categories_list"
@@ -25,7 +26,7 @@
         android:id="@+id/products_list"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.8"
+        android:layout_weight="0.75"
         android:orientation="vertical">
 
         <ImageView
@@ -40,7 +41,9 @@
             android:id="@+id/productsListView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:childDivider="@color/colorTransparent"
             android:choiceMode="multipleChoice"
+            android:divider="@drawable/divider"
             android:paddingBottom="30dp"
             android:scrollbars="none" />
 

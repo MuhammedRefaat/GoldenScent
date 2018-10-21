@@ -10,4 +10,5 @@
     <color name="colorRedButton">#D72f22</color>
     <color name="colorTransparent">#00000000</color>
     <color name="colorButtonBg">#FAFAFA</color>
+    <color name="colorGroupsSeparatorBg">#F1F1F1</color>
 </resources>

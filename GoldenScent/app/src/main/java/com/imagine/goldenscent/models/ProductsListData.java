@@ -9,18 +9,14 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class PrepareProductsListData {
+public class ProductsListData {
 
     private static String CHILDREN_ARRAY_NAME = "childrenOfHeader_";
 
     public static ArrayList<String> headers;
     public static HashMap<String, List<String>> children;
 
-    private static Context context;
-
-    public static void prepareData(Context activityContext) {
-
-        context = activityContext;
+    public static void prepareData(Context context) {
 
         headers = new ArrayList<>();
         children = new HashMap<>();
