@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="horizontal"
-    tools:context=".MainActivity">
+    tools:context=".views.MainActivity">
 
     <ScrollView
         android:layout_width="0dp"
@@ -13,9 +13,10 @@
         android:layout_weight="0.2">
 
         <LinearLayout
-            android:id="@+id/categories_list"
+            android:id="@+id/main_categories_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="vertical" />
 
     </ScrollView>

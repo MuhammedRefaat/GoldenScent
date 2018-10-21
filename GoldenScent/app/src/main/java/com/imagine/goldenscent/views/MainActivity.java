@@ -1,9 +1,18 @@
-package com.imagine.goldenscent;
+package com.imagine.goldenscent.views;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+
+import com.imagine.goldenscent.adapters.ExpandableListAdapter;
+import com.imagine.goldenscent.models.PrepareCategoriesListData;
+import com.imagine.goldenscent.models.PrepareProductsListData;
+import com.imagine.goldenscent.R;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +22,8 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
+    @BindView(R.id.main_categories_list)
+    LinearLayout mainCategoriesList;
     @BindView(R.id.productsListView)
     ExpandableListView productsListView;
 
@@ -28,12 +39,18 @@ public class MainActivity extends AppCompatActivity {
         // views declaration
         ButterKnife.bind(this);
 
-        // prepare data to be displayed for the listView
-        PrepareListData.prepareData(MainActivity.this);
+        // prepare the data to be displayed for the categories list
+        PrepareCategoriesListData.prepareData(MainActivity.this);
+
+        // handling the categories retrieve, set and display
+        displayCategories();
+
+        // prepare data to be displayed for the products listView
+        PrepareProductsListData.prepareData(MainActivity.this);
 
         // initiating the adapter with the data retrieved
         productsListAdapter = new ExpandableListAdapter(this,
-                PrepareListData.headers, PrepareListData.children);
+                PrepareProductsListData.headers, PrepareProductsListData.children);
 
         // assigning the adapter to the view
         productsListView.setAdapter(productsListAdapter);
@@ -49,6 +66,13 @@ public class MainActivity extends AppCompatActivity {
         // handle opened groups
         productsListView.expandGroup(0);
         productsListView.expandGroup(1);
+    }
+
+    private void displayCategories() {
+        View view;
+        LayoutInflater inflater = (LayoutInflater) this
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        view = inflater.inflate(R.layout.single_category_selection, null);
     }
 
     /**

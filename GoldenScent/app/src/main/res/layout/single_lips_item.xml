@@ -86,7 +86,7 @@
 
     </LinearLayout>
 
-    <com.imagine.goldenscent.MyCustomClickableButton
+    <com.imagine.goldenscent.views.MyCustomClickableButton
         android:id="@+id/view_all_cat"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="match_parent"

@@ -1,13 +1,15 @@
-package com.imagine.goldenscent;
+package com.imagine.goldenscent.models;
 
 import android.content.Context;
+
+import com.imagine.goldenscent.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class PrepareListData {
+public class PrepareProductsListData {
 
     private static String CHILDREN_ARRAY_NAME = "childrenOfHeader_";
 

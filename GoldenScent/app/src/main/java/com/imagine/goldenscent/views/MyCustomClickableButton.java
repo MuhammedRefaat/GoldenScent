@@ -1,4 +1,4 @@
-package com.imagine.goldenscent;
+package com.imagine.goldenscent.views;
 
 import android.content.Context;
 import android.os.Build;

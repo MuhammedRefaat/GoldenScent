@@ -21,5 +21,14 @@
     <string name="org_price_value">356 SR</string>
     <string name="cut_price_value">320 SR</string>
     <string name="price_value">356 SR</string>
+    <!-- for categories list Data -->
+    <string name="cat0">Women</string>
+    <string name="cat1">Makeup</string>
+    <string name="cat2">Skincare</string>
+    <string name="cat3">Haircare</string>
+    <string name="cat4">Beauty Tools</string>
+    <string name="cat5">Hole Fragrances</string>
+    <string name="cat6">Gift</string>
+    <string name="cat7">Men</string>
 
 </resources>

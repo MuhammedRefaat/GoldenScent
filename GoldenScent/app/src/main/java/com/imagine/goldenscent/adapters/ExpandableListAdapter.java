@@ -1,10 +1,8 @@
-package com.imagine.goldenscent;
+package com.imagine.goldenscent.adapters;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.Paint;
-import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -16,6 +14,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.imagine.goldenscent.R;
+import com.imagine.goldenscent.views.MainActivity;
 
 import java.util.HashMap;
 import java.util.List;
@@ -244,7 +245,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         // get the view
         LayoutInflater inflater = (LayoutInflater) this.context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        view = inflater.inflate(R.layout.single_category_group_listing, null);
+        view = inflater.inflate(R.layout.single_category_product_group_listing, null);
 
         /* define the views */
         TextView groupTitle = view.findViewById(R.id.group_title);

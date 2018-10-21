@@ -27,4 +27,8 @@
         <item>@string/lips_row_2</item>
     </string-array>
 
+    <string-array name="categories">
+        <item>@string/aigner</item>
+    </string-array>
+
 </resources>
