@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">HeartbeatMonitor</string>
+    <string name="action_settings">Settings</string>
+    <string name="new_alart">Add a new reminder</string>
+    <string name="set_date"><u>Set Date</u></string>
+    <string name="set_time"><u>Set Time</u></string>
+    <string name="repeat">Repeat</string>
+    <string name="hourly">Hourly</string>
+    <string name="daily">Daily</string>
+    <string name="monthly">Monthly</string>
+    <string name="yearly">Yearly</string>
+    <string name="date_and_time_set_error">Kindly set both Date and Time for the alert</string>
+    <string name="alarm_notice">It\'s time to check your heartbeat rate</string>
+    <string name="go">Go</string>
+    <string name="later">later</string>
+</resources>

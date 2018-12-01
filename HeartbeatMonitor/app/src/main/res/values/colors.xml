@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="icons">#ffffff</color>
+    <color name="colorPrimary">#10527c</color>
+    <color name="colorPrimaryLight">#647f94</color>
+    <color name="colorAccent">#5e626d</color>
+    <color name="background">#ebe8e8</color>
+    <color name="text_hint">#a39b9b</color>
+    <color name="text_hint_alarm">#9ea1a7</color>
+    <color name="heartbeat_good">#0ed80e</color>
+    <color name="heartbeat_warning">#f0830e</color>
+    <color name="heartbeat_danger">#f0290e</color>
+    <color name="popup_inside">#cccccc</color>
+    <color name="popup_stroke">#b7b7b7</color>
+    <color name="blue">#1111FF</color>
+    <color name="alert_info_text_color">#5a5f6a</color>
+</resources>

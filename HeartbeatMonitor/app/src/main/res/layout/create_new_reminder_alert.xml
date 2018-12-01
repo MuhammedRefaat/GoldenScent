@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_triangle"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <LinearLayout
+        android:id="@+id/adding_date_and_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/set_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/set_date"
+            android:textColor="@color/blue"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/set_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/set_time"
+            android:textColor="@color/blue"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/repeats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:paddingStart="20dp">
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/repeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:buttonTint="@color/colorPrimary"
+            android:text="@string/repeat"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/repeat_selections_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/repeat"
+            android:layout_marginStart="40dp"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:id="@+id/repeat_selections"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_weight="0.7">
+
+                <RadioButton
+                    android:id="@+id/hourly"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:height="30dp"
+                    android:button="@drawable/radio_but_bg"
+                    android:text="@string/hourly"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/daily"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:height="30dp"
+                    android:button="@drawable/radio_but_bg"
+                    android:text="@string/daily"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/monthly"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:height="30dp"
+                    android:button="@drawable/radio_but_bg"
+                    android:text="@string/monthly"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/yearly"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:height="30dp"
+                    android:button="@drawable/radio_but_bg"
+                    android:text="@string/yearly"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_weight="0.3"
+                android:gravity="start|center_vertical"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/hourly_repeat_value"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/edittext_bg"
+                    android:gravity="center"
+                    android:hint="00"
+                    android:maxLines="1"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/text_hint_alarm" />
+
+                <EditText
+                    android:id="@+id/daily_repeat_value"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/edittext_bg"
+                    android:gravity="center"
+                    android:hint="00"
+                    android:maxLines="1"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/text_hint_alarm" />
+
+                <EditText
+                    android:id="@+id/monthly_repeat_value"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/edittext_bg"
+                    android:gravity="center"
+                    android:hint="00"
+                    android:maxLines="1"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/text_hint_alarm" />
+
+                <EditText
+                    android:id="@+id/yearly_repeat_value"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/edittext_bg"
+                    android:gravity="center"
+                    android:hint="00"
+                    android:maxLines="1"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/text_hint_alarm" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/alert_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/repeat_selections_container"
+            android:textColor="@color/alert_info_text_color"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/cancel_alert"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:paddingEnd="25dp"
+            android:scaleType="fitEnd"
+            android:src="@drawable/cancel_alert" />
+
+        <ImageButton
+            android:id="@+id/save_alert"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:paddingStart="25dp"
+            android:scaleType="fitStart"
+            android:src="@drawable/save_alert" />
+
+    </LinearLayout>
+
+</LinearLayout>
